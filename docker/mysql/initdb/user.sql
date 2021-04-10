@@ -1,0 +1,2 @@
+CREATE USER 'max'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON *.* TO 'max'@'%' WITH GRANT OPTION;

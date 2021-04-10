@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cenylcz-db-deployment
+  labels:
+    app: cenylcz-db #label name for deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cenylcz-db-pod # Link deployment to pods
+  template:
+    metadata:
+      labels:
+        app: cenylcz-db-pod #label name for pods
+    spec:
+      containers:
+        - name: cenylcz-db
+          image: cenylcz/cenylcz-db:1.0
+          ports:
+          - containerPort: 3306
+          env:
+          - name: MYSQL_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: cenylcz-db-secret
+                key: mysql_root_password
+          volumeMounts:
+            - mountPath: /var/lib/mysql # path inside container
+              name: cenylcz-db-pv-storage
+      volumes:
+        - name: cenylcz-db-pv-storage
+          persistentVolumeClaim:
+            claimName: mysql-pvc
+

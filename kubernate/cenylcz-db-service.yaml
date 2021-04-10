@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: cenylcz-db-service
+spec:
+  selector:
+    app: cenylcz-db-pod # Link service to pods
+  type: LoadBalancer
+  ports:
+    - protocol: TCP
+      port: 3306
+      targetPort: 3306

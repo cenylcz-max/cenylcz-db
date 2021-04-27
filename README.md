@@ -1,7 +1,7 @@
 # Build Dokcer Image
 
 ```bash
-docker build -t cenylcz/cenylcz-db:1.0.0 .
+docker build -t cenylcz/cenylcz-db:0.0.1 .
 ```
 
 ## Run with Kubernets

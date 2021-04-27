@@ -17,7 +17,6 @@ create table `business`.`trade` (
     `close_unit_cost` DOUBLE(8, 2) DEFAULT NULL,
     `purchase_time` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     `close_time` TIMESTAMP NULL,
-    `gain_lost_total` DOUBLE(8, 2) DEFAULT 0.0,
     `status` ENUM('Active', 'Closed') NOT NULL,
     PRIMARY KEY(`trade_key`)
 )

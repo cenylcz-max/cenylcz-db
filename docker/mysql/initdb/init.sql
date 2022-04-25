@@ -5,6 +5,8 @@ create table `cenylcz`.`words` (
     `word` VARCHAR(32) NOT NULL,
     `definition` VARCHAR(1024),
     `example` TEXT,
+    `alphabet` ENUM('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z') NOT NULL,
+    `category` ENUM('WORD', 'PHRASE') NOT NULL,
     `updatedTime` TIMESTAMP NULL ON UPDATE CURRENT_TIMESTAMP,
     `createdTime` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(`word`)
